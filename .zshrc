@@ -7,6 +7,7 @@ fi
 
 # Path to your oh-my-zsh installation.
 ZSH=/usr/share/oh-my-zsh/
+# ZSH=$HOME/.oh-my-zsh/custom
 
 # Proxy configuration
 export http_proxy="127.0.0.1:7890"
@@ -15,7 +16,7 @@ export no_proxy="localhost,127.0.0.1,127.0.1.1,10.0.0.0/8,172.16.0.0/12,192.168.
 
 # Path to powerlevel10k theme
 # source /usr/share/zsh-theme-powerlevel10k/powerlevel10k.zsh-theme
-source ${ZSH_CUSTOM:-$HOME/.oh-my-zsh/custom}/themes/powerlevel10k/powerlevel10k.zsh-theme
+source $ZSH/themes/powerlevel10k/powerlevel10k.zsh-theme
 
 # List of plugins used
 plugins=( git sudo autojump zsh-256color zsh-autosuggestions zsh-syntax-highlighting )
