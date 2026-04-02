@@ -1,0 +1,44 @@
+# ==============================================================================
+# .chezmoiignore - Created by Allan
+# ==============================================================================
+
+# --- Neovim / LazyVim ---
+.config/nvim/.git
+.config/nvim/lazy-lock.json
+.config/nvim/orbit.json
+**/*.swp
+**/*.swo
+**/.netrwhist
+.config/nvim/undo/**
+.config/nvim/backups/**
+.config/nvim/sessions/**
+
+# --- Zsh & Shell Noise ---
+.zsh_history
+.zhistory
+.zcompdump*
+.python_history
+.lesshst
+
+# --- System & Cache ---
+.cache/**
+.dbus/**
+.gvfs/**
+.local/share/Trash/**
+.local/share/nvim/lazy/**
+.local/share/nvim/mason/**
+
+# --- Custom Scripts ---
+# Specifically ignore the state file for your 'calc_core' script.
+.cache/zsh_calc_state
+
+# --- Desktop Environment (KDE/Wayland) Junk ---
+.Xauthority
+.ICEauthority
+.wget-hsts
+.node_repl_history
+
+# --- macOS / Cross-platform Junk (In case you sync to iPad/Mac) ---
+.DS_Store
+.AppleDouble
+.LSOverride

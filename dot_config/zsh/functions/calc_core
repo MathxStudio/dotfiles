@@ -1,0 +1,48 @@
+# Load Zsh advanced math module
+zmodload zsh/mathfunc 2>/dev/null
+
+local expr="$*"
+
+# Help / Aesthetic UI Menu
+if [[ -z "$expr" || "$expr" == "-h" || "$expr" == "--help" ]]; then
+    print -P "%F{magenta}󰪚 calc%f : Zsh Native Calculator"
+    print -P "%F{blue}╭─%f %F{green}Usage%f   : calc <expression>"
+    print -P "%F{blue}├─%f %F{yellow}Bases%f   : calc 0xFF + 0b1010"
+    print -P "%F{blue}├─%f %F{cyan}Bitwise%f : calc 10 << 2  or  0x10 & 0x0F"
+    print -P "%F{blue}╰─%f %F{blue}Math%f    : calc sqrt(144) + sin(pi/2)"
+    return 1
+fi
+
+# Security check: Block command substitution syntaxes
+if [[ "$expr" == *'`'* || "$expr" == *'$('* || "$expr" == *';'* ]]; then
+     print -P "%F{red}✖ Security Error:%f Invalid characters in expression."
+     return 1
+fi
+
+local res
+# Evaluate math safely using Zsh's internal arithmetic engine
+if ! res=$(( $expr )) 2>/dev/null; then
+     print -P "%F{red}✖ Error:%f Could not compute '%F{yellow}$expr%f'"
+     return 1
+fi
+
+print -P "%F{blue}╭─ 󰪚 %f$expr"
+
+# Pure Zsh regex check for integers
+if [[ "$res" == <-> || "$res" == -<-> ]]; then
+    local sign=""
+    local abs_res="$res"
+    if (( res < 0 )); then
+        sign="-"
+        abs_res=$(( -res ))
+    fi
+
+    local hex_val=$(( [##16] abs_res ))
+    local bin_val=$(( [##2] abs_res ))
+
+    print -P "%F{blue}├─ %F{green}DEC :%f $res"
+    print -P "%F{blue}├─ %F{yellow}HEX :%f ${sign}0x$hex_val"
+    print -P "%F{blue}╰─ %F{cyan}BIN :%f ${sign}0b$bin_val"
+else
+    print -P "%F{blue}╰─ %F{green}DEC :%f $res"
+fi

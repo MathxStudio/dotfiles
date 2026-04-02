@@ -1,0 +1,84 @@
+# Enable Powerlevel10k instant prompt. Should stay close to the top of ~/.zshrc.
+# Initialization code that may require console input (password prompts, [y/n]
+# confirmations, etc.) must go above this block; everything else may go below.
+# export GTK_IM_MODULE=fcitx
+# export QT_IM_MODULE=fcitx
+# export XMODIFIERS=@im=fcitx
+# export SDL_IM_MODULE=fcitx
+# export GLFW_IM_MODULE=ibus
+
+# Proxy Settings
+# Proxy Settings (Mihomo/Clash)
+proxy_port="7890"
+proxy_addr="127.0.0.1"
+
+proxy_on() {
+    export http_proxy="http://$proxy_addr:$proxy_port"
+    export https_proxy="http://$proxy_addr:$proxy_port"
+    export ftp_proxy="http://$proxy_addr:$proxy_port"
+    export all_proxy="socks5://$proxy_addr:$proxy_port"
+    echo "Proxy Environment On"
+}
+
+proxy_off() {
+    unset http_proxy https_proxy ftp_proxy all_proxy
+    echo "Proxy Environment Off"
+}
+
+# systemd editors
+export SUDO_EDITOR=nvim
+export SYSTEMD_EDITOR=nvim
+alias se='sudo -E SYSTEMD_EDITOR="nvim -u ~/.config/nvim/init.lua" systemctl edit'
+alias sue='SYSTEMD_EDITOR="nvim" systemctl --user edit'
+
+# cd
+alias ..="cd .."
+alias ...="cd ../.."
+alias ....="cd ../../.."
+alias .....="cd ../../../.."
+alias ......="cd ../../../../.."
+
+# Git
+alias gc="git commit -m"
+alias gca="git commit -a -m"
+alias gp="git push origin HEAD"
+alias gpu="git pull origin"
+alias gst="git status"
+alias glog="git log --graph --topo-order --pretty='%w(100,0,6)%C(yellow)%h%C(bold)%C(black)%d %C(cyan)%ar %C(green)%an%n%C(bold)%C(white)%s %N' --abbrev-commit"
+alias gdiff="git diff"
+alias gco="git checkout"
+alias gb='git branch'
+alias gba='git branch -a'
+alias gadd='git add'
+alias ga='git add -p'
+alias gcoall='git checkout -- .'
+alias gr='git remote'
+alias gre='git reset'
+
+# ls alternative
+alias l="eza -l --icons --git -a"
+alias lt="eza --tree --level=3 --long --icons --git"
+alias ltree="eza --tree --level=3  --icons --git"
+
+if [[ -r "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh" ]]; then
+  source "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh"
+fi
+
+source /usr/share/cachyos-zsh-config/cachyos-config.zsh
+
+# To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
+[[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
+
+eval "$(zoxide init zsh)"
+export PATH="$HOME/.local/bin:$PATH"
+
+unsetopt correct_all
+unsetopt correct
+
+# Disable globbing for the calculator so you can use '*' without quoting
+fpath=(~/.config/zsh/functions $fpath)
+autoload -Uz calc_core
+
+alias calc='noglob calc_core'
+
+

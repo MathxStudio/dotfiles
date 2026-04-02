@@ -1,0 +1,11 @@
+[Desktop Entry]
+Type=Service
+ServiceTypes=KonqPopupMenu/Plugin
+MimeType=all/allfiles;
+Actions=taildropSend;
+X-KDE-Priority=TopLevel
+
+[Desktop Action taildropSend]
+Name=Send via Tailscale (Taildrop)
+Icon=network-shared-symbolic
+Exec=/home/allan/.local/bin/taildrop-send.sh %f
