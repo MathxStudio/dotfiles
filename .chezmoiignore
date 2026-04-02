@@ -32,13 +32,13 @@
 # Specifically ignore the state file for your 'calc_core' script.
 .cache/zsh_calc_state
 
-# --- Desktop Environment (KDE/Wayland) Junk ---
+# --- Desktop Environment ---
 .Xauthority
 .ICEauthority
 .wget-hsts
 .node_repl_history
 
-# --- macOS / Cross-platform Junk (In case you sync to iPad/Mac) ---
+# --- macOS / Cross-platform ---
 .DS_Store
 .AppleDouble
 .LSOverride
