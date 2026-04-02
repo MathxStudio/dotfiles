@@ -1,0 +1,18 @@
+[General]
+count=2
+rules=ccb7ce53-e854-4468-a372-7102ad2718d1,aa8085eb-4b6f-42ac-a967-1f677b00f0bd
+
+[aa8085eb-4b6f-42ac-a967-1f677b00f0bd]
+Description=Application settings for org.pwmt.zathura
+noborder=true
+noborderrule=2
+wmclass=zathura org.pwmt.zathura
+wmclasscomplete=true
+wmclassmatch=1
+
+[ccb7ce53-e854-4468-a372-7102ad2718d1]
+Description=Application settings for kitty
+noborder=true
+noborderrule=2
+wmclass=kitty
+wmclassmatch=1
