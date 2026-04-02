@@ -3,3 +3,14 @@
 	sslVersion = tlsv1.2
 [https]
 	proxy = socks5://127.0.0.1:7890
+[user]
+	email = mathxstudio@gmail.com
+	name = Allan Pan
+[core]
+	editor = nvim
+[credential "https://github.com"]
+	helper = 
+	helper = !/usr/bin/gh auth git-credential
+[credential "https://gist.github.com"]
+	helper = 
+	helper = !/usr/bin/gh auth git-credential

@@ -75,10 +75,34 @@ export PATH="$HOME/.local/bin:$PATH"
 unsetopt correct_all
 unsetopt correct
 
-# Disable globbing for the calculator so you can use '*' without quoting
+# lightweight terminal calculator
 fpath=(~/.config/zsh/functions $fpath)
 autoload -Uz calc_core
-
 alias calc='noglob calc_core'
 
 
+# Automatically detects if a file is managed by chezmoi and routes accordingly
+function nvim() {
+    if [[ $# -eq 0 ]]; then
+        command nvim
+        return $?
+    fi
+
+    local target=""
+    for arg in "$@"; do
+        if [[ "$arg" != -* ]]; then
+            target="$arg"
+            break
+        fi
+    done
+
+    if [[ -n "$target" ]] && chezmoi source-path "$target" >/dev/null 2>&1; then
+        notify-send "󰏗 Chezmoi Auto-Detect" "Editing managed file: $target" -t 3000
+        print -P "%F{blue}╭─ 󰏗 Chezmoi Auto-Detect%f"
+        print -P "%F{blue}╰─ %F{green}Editing managed file:%f $target"
+        
+        chezmoi edit "$@"
+    else
+        command nvim "$@"
+    fi
+}
