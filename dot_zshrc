@@ -81,6 +81,9 @@ autoload -Uz calc_core
 alias calc='noglob calc_core'
 
 
+# ==============================================================================
+# 󰏗 CHEZMOI
+# ==============================================================================
 # Automatically detects if a file is managed by chezmoi and routes accordingly
 function nvim() {
     if [[ $# -eq 0 ]]; then
@@ -102,7 +105,30 @@ function nvim() {
         print -P "%F{blue}╰─ %F{green}Editing managed file:%f $target"
         
         chezmoi edit "$@"
+        chezmoi apply
     else
         command nvim "$@"
     fi
+}
+
+# Automatically re-adds all volatile KDE config files to the repo
+function sync_kde() {
+    print -P "%F{blue}╭─ 󰏗 Pulling latest KDE GUI tweaks into Chezmoi...%f"
+    
+    local kde_files=(
+        ~/.config/plasma-org.kde.plasma.desktop-appletsrc # Panel and widget settings
+        ~/.config/kwinrulesrc # Window rules
+        ~/.config/kwinrc      # WM settings
+        ~/.config/kdeglobals  # global themes, etc.
+        ~/.config/kglobalshortcutsrc  # Keyboard shortcuts
+    )
+
+    for file in $kde_files; do
+        if [[ -f $file ]]; then
+            chezmoi re-add "$file"
+            print -P "%F{#005F5F}│  Added: ${file:t}%f" # just prints the filename, not the path
+        fi
+    done
+
+    print -P "%F{blue}╰─ %F{green}✔ KDE configs updated! Ready for git commit.%f"
 }
