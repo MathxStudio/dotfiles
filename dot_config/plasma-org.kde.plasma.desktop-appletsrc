@@ -185,8 +185,12 @@ location=0
 plugin=org.kde.plasma.folder
 wallpaperplugin=org.kde.image
 
+[Containments][43][ConfigDialog]
+DialogHeight=630
+DialogWidth=810
+
 [Containments][43][Wallpaper][org.kde.image][General]
-Image=file:///usr/share/wallpapers/cachyos-wallpapers/BlueFeathers.png
+Image=file:///home/allan/.local/share/wallpapers/Deep_Space_72_Without_A_Logo.jpg
 SlidePaths=/usr/share/wallpapers/
 
 [Containments][45]
@@ -200,3 +204,4 @@ wallpaperplugin=org.kde.image
 
 [ScreenMapping]
 itemsOnDisabledScreens=
+screenMapping=desktop:/yuque_pwd,0,f9d38684-e642-498f-b894-5d56d52506c2

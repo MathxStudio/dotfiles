@@ -8,11 +8,19 @@ Rows=1
 [NightColor]
 Mode=Constant
 
+[Tiling][943e95ea-45f8-4723-a9e6-8161f782703a][90d1da55-cdc9-4805-899c-aabe31744e76]
+padding=4
+tiles={"layoutDirection":"horizontal","tiles":[{"width":0.25},{"width":0.5},{"width":0.25}]}
+
 [Tiling][943e95ea-45f8-4723-a9e6-8161f782703a][ae4cdfff-97c5-4522-aa98-85419b2969b8]
 padding=4
 tiles={"layoutDirection":"horizontal","tiles":[{"width":0.25},{"width":0.5},{"width":0.25}]}
 
 [Tiling][943e95ea-45f8-4723-a9e6-8161f782703a][fd1d55ec-24ab-4a26-928c-4c76e22f87f0]
+padding=4
+tiles={"layoutDirection":"horizontal","tiles":[{"width":0.25},{"width":0.5},{"width":0.25}]}
+
+[Tiling][dc5763da-4da3-4706-ace5-a113ee0c20bf][90d1da55-cdc9-4805-899c-aabe31744e76]
 padding=4
 tiles={"layoutDirection":"horizontal","tiles":[{"width":0.25},{"width":0.5},{"width":0.25}]}
 
@@ -24,9 +32,13 @@ tiles={"layoutDirection":"horizontal","tiles":[{"width":0.25},{"width":0.5},{"wi
 padding=4
 tiles={"layoutDirection":"horizontal","tiles":[{"width":0.25},{"width":0.5},{"width":0.25}]}
 
-[Tiling][e3741472-e668-4317-ad35-a413948b034a][ae4cdfff-97c5-4522-aa98-85419b2969b8]
+[Tiling][e3741472-e668-4317-ad35-a413948b034a][90d1da55-cdc9-4805-899c-aabe31744e76]
 padding=4
 tiles={"layoutDirection":"horizontal","tiles":[{"width":0.25},{"width":0.5},{"width":0.25}]}
+
+[Tiling][e3741472-e668-4317-ad35-a413948b034a][ae4cdfff-97c5-4522-aa98-85419b2969b8]
+padding=4
+tiles={"layoutDirection":"horizontal","tiles":[{"width":0.5354687500000017},{"width":0.4645312499999983}]}
 
 [Tiling][e3741472-e668-4317-ad35-a413948b034a][fd1d55ec-24ab-4a26-928c-4c76e22f87f0]
 padding=4
@@ -37,3 +49,7 @@ InputMethod[$e]=/usr/share/applications/org.fcitx.Fcitx5.desktop
 
 [Xwayland]
 Scale=1.4
+
+[org.kde.kdecoration2]
+library=org.kde.breeze
+theme=Breeze

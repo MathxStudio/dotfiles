@@ -132,3 +132,4 @@ function sync_kde() {
 
     print -P "%F{blue}╰─ %F{green}✔ KDE configs updated! Ready for git commit.%f"
 }
+export PATH="$HOME/.npm-global/bin:$PATH"
