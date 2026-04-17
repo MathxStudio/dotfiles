@@ -9,13 +9,9 @@
 
 # Proxy Settings
 # Proxy Settings (Mihomo/Clash)
-proxy_port="7890"
-proxy_addr="127.0.0.1"
-
-export http_proxy="http://$proxy_addr:$proxy_port"
-export https_proxy="http://$proxy_addr:$proxy_port"
-export ftp_proxy="http://$proxy_addr:$proxy_port"
-export all_proxy="socks5://$proxy_addr:$proxy_port"
+export http_proxy="http://127.0.0.1:7890"
+export https_proxy="http://127.0.0.1:7890"
+alias proxy_off="unset http_proxy; unset https_proxy; echo 'Proxy Off'"
 
 # systemd editors
 export SUDO_EDITOR=nvim

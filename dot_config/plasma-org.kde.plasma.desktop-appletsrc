@@ -212,4 +212,4 @@ wallpaperplugin=org.kde.image
 
 [ScreenMapping]
 itemsOnDisabledScreens=
-screenMapping=desktop:/TODO.txt,0,f9d38684-e642-498f-b894-5d56d52506c2,desktop:/yuque_pwd,0,f9d38684-e642-498f-b894-5d56d52506c2
+screenMapping=desktop:/yuque_pwd,0,f9d38684-e642-498f-b894-5d56d52506c2,desktop:/TODO.txt,0,f9d38684-e642-498f-b894-5d56d52506c2
